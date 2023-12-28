@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailChannels Forest</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+<div class="header">
+    <h1 class="welcome">Welcome <%= name %>!</h1>
+    <form action="/logout?_method=DELETE" method="POST">
+        <button type="submit" class="logout-button">Logout</button>
+    </form>
+</div>
+
+<div class="display-container">
+    <div class="trees-container">
+        <% trees.forEach((tree, index) => { %>
+            <div id="my-svg-container-<%= index %>" class="tree" data-customer="<%= tree.customerName %>"
+                 data-email-count="<%= tree.emailCount %>">
+                <!-- SVG will be inserted here -->
+            </div>
+            <script>
+                fetch('/icon.svg')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('my-svg-container-<%= index %>').innerHTML = data;
+                        document.querySelector('#my-svg-container-<%= index %> svg path').style.fill = `hsl(<%= tree.hue %>, 100%, 50%)`;
+                    });
+            </script>
+        <% }) %>
+    </div>
+</div>
+</body>
+</html>
