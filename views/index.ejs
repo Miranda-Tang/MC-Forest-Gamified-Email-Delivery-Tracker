@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MailChannels Forest</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
@@ -17,21 +18,19 @@
 
 <div class="display-container">
     <div class="trees-container">
-        <% trees.forEach((tree, index) => { %>
-            <div id="my-svg-container-<%= index %>" class="tree" data-customer="<%= tree.customerName %>"
-                 data-email-count="<%= tree.emailCount %>">
-                <!-- SVG will be inserted here -->
-            </div>
-            <script>
-                fetch('/icon.svg')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('my-svg-container-<%= index %>').innerHTML = data;
-                        document.querySelector('#my-svg-container-<%= index %> svg path').style.fill = `hsl(<%= tree.hue %>, 100%, 50%)`;
-                    });
-            </script>
-        <% }) %>
+        <!-- .page divs will be appended here dynamically -->
+    </div>
+    <div class="navigation-buttons">
+        <button id="prev-button"><i class="fas fa-arrow-alt-circle-left"></i></button>
+        <button id="next-button"><i class="fas fa-arrow-alt-circle-right"></i></button>
     </div>
 </div>
+
+<script>
+    // Convert trees array passed from server to JSON within a script tag
+    const treesData = JSON.parse('<%- JSON.stringify(trees) %>');
+</script>
+
+<script src="/js/main.js"></script>
 </body>
 </html>
