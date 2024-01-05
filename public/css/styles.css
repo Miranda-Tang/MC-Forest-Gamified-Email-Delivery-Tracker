@@ -110,9 +110,8 @@ body {
 
 #prev-button,
 #next-button {
-    background-color: var(--background-color);
+    background: transparent;
     border: none;
-    outline: none;
     cursor: pointer;
 }
 
@@ -197,6 +196,51 @@ table tbody tr:hover {
 
 #ascending.selected, #descending.selected {
     color: var(--foreground-color);
+}
+
+#search-container {
+    display: flex;
+    justify-content: center;
+    margin: -14px 8px 20px 8px; /* top, right, bottom, left */
+}
+
+#search-container > * {
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+#search-container > :first-child {
+    margin-left: 0;
+}
+
+#search-container > :last-child {
+    margin-right: 0;
+}
+
+#searchBox {
+    width: 300px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--background-color);
+}
+
+#searchButton, #resetButton {
+    margin-left: 10px;
+    padding: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#searchButton i, #resetButton i {
+    color: white;
+    text-shadow: 1px 1px 2px var(--foreground-color);
+}
+
+#searchButton:hover, #resetButton:hover {
+    background: transparent;
 }
 
 button,

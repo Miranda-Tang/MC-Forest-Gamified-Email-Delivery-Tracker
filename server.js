@@ -48,13 +48,24 @@ app.get("/", checkAuthenticated, async (req, res) => {
 
 app.get("/dashboard", checkAuthenticated, async (req, res) => {
   const sortOrder = req.query.sortOrder || "descending";
+  const customerName = req.query.customerName;
   const sortQuery =
     sortOrder === "ascending" ? { emailCount: 1 } : { emailCount: -1 };
-  const trees = await Tree.find().sort(sortQuery);
+
+  let query;
+  if (customerName) {
+    // This uses a regular expression to perform a search that matches any part of the customerName and is case-insensitive
+    query = Tree.find({ customerName: new RegExp(customerName, "i") });
+  } else {
+    query = Tree.find();
+  }
+
+  const trees = await query.sort(sortQuery);
+
   if (req.headers.accept === "application/json") {
     return res.json({ trees });
   }
-  res.render("dashboard.ejs", { trees: trees });
+  res.render("dashboard.ejs", { trees });
 });
 
 app.get("/login", checkNotAuthenticated, (req, res) => {

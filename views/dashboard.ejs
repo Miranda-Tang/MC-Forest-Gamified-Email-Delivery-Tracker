@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
 <div class="header">
     <h1 class="dashboard">Dashboard</h1>
     <a href="/" class="button back-button">Back</a>
+</div>
+
+<div id="search-container">
+    <input type="text" id="searchBox" placeholder="Search for a customer..."/>
+    <button id="searchButton" onclick="searchCustomer()">
+        <i class="fa fa-search"></i>
+    </button>
+    <button id="resetButton" onclick="resetTable()">
+        <i class="fa fa-undo"></i>
+    </button>
 </div>
 
 <table id="treeTable">
