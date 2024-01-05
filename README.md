@@ -11,7 +11,7 @@ emails delivered - **the redder the tree, the more emails have been delivered.**
 
 ## 🎬 Demo Video
 
-https://github.com/Miranda-Tang/MC-Forest/assets/81618041/f19ff6e0-1a1f-4fdb-bebd-ebc3e5cbb0a6
+https://github.com/Miranda-Tang/MC-Forest-Gamified-Email-Delivery-Tracker/assets/81618041/14cd1f61-5737-450e-9ff8-4f288ae647e4
 
 <br>
 
