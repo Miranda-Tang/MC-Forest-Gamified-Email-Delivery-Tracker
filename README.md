@@ -1,9 +1,9 @@
-# MailChannels Forest: Gamified Email Delivery Tracker
+# MC Forest: Gamified Email Delivery Tracker
 
 ## 📚 Description
 
-The `MailChannels Forest` project is a dynamic web application enabling users to visualize the volume of
-successful `email deliveries` to each MailChannels customer. The core concept turns traditional statistics into a
+The `MC Forest` project is a dynamic web application enabling users to visualize the volume of
+successful `email deliveries` to each MC customer. The core concept turns traditional statistics into a
 vibrant, interactive forest, where each tree represents a client, and the color of the tree illustrates the number of
 emails delivered - **the redder the tree, the more emails have been delivered.**
 
@@ -11,7 +11,7 @@ emails delivered - **the redder the tree, the more emails have been delivered.**
 
 ## 🎬 Demo Video
 
-https://github.com/Miranda-Tang/MailChannels-Forest/assets/81618041/f19ff6e0-1a1f-4fdb-bebd-ebc3e5cbb0a6
+https://github.com/Miranda-Tang/MC-Forest/assets/81618041/f19ff6e0-1a1f-4fdb-bebd-ebc3e5cbb0a6
 
 <br>
 
