@@ -22,6 +22,7 @@ mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   .then(() => console.log("MongoDB connection established successfully"))
   .catch((error) => console.error("Failed to connect MongoDB:", error.message));
@@ -43,6 +44,17 @@ app.use(express.static("public"));
 app.get("/", checkAuthenticated, async (req, res) => {
   const trees = await Tree.find(); // Fetch all trees from the database
   res.render("index.ejs", { name: req.user.name, trees: trees });
+});
+
+app.get("/dashboard", checkAuthenticated, async (req, res) => {
+  const sortOrder = req.query.sortOrder || "descending";
+  const sortQuery =
+    sortOrder === "ascending" ? { emailCount: 1 } : { emailCount: -1 };
+  const trees = await Tree.find().sort(sortQuery);
+  if (req.headers.accept === "application/json") {
+    return res.json({ trees });
+  }
+  res.render("dashboard.ejs", { trees: trees });
 });
 
 app.get("/login", checkNotAuthenticated, (req, res) => {

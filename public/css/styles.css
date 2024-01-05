@@ -22,17 +22,16 @@ body {
     text-align: center;
 }
 
-.welcome {
+.welcome, .dashboard {
     font-family: "Comic Sans MS", serif;
     color: white;
     margin: 40px 0 40px;
     text-shadow: 1px 1px 2px var(--foreground-color);
 }
 
-.logout-button {
+.button {
     position: absolute;
     top: -8px;
-    right: 38px;
     color: var(--background-color);
     background-color: var(--foreground-color);
     border: 2px solid var(--background-color);
@@ -45,10 +44,18 @@ body {
     transition-duration: 0.4s;
 }
 
-.logout-button:hover {
+.button:hover {
     color: white;
     background-color: var(--background-color);
     border: 2px solid var(--background-color);
+}
+
+.dashboard-button, .back-button {
+    left: 38px;
+}
+
+.logout-button {
+    right: 38px;
 }
 
 .display-container {
@@ -126,6 +133,70 @@ body {
 
 #next-button {
     margin-left: 20px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-collapse: collapse;
+    font-size: 16px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 6px 6px 10px var(--dark-shadow),
+    -3px -3px 10px var(--light-shadow);
+    margin-bottom: 40px;
+}
+
+th, td {
+    border: 1px solid var(--background-color);
+    padding: 8px;
+    text-align: center;
+}
+
+table thead th {
+    color: white;
+    background-color: var(--background-color);
+    font-weight: bold;
+}
+
+.odd-row {
+    background-color: #f2f2f2;
+}
+
+.even-row {
+    background-color: #DFF0D8;
+}
+
+table tbody tr:hover {
+    color: white;
+    background-color: var(--background-color);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-arrows {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+#ascending, #descending {
+    border: none;
+    background: none;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+    display: block; /* to stack buttons vertically */
+    transition: color 0.3s ease;
+}
+
+#ascending.selected, #descending.selected {
+    color: var(--foreground-color);
 }
 
 button,

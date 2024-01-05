@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="header">
+    <h1 class="dashboard">Dashboard</h1>
+    <a href="/" class="button back-button">Back</a>
+</div>
+
+<table id="treeTable">
+    <thead>
+    <tr>
+        <th>Customer Name</th>
+        <th>
+            <div class="header-container">
+                <span>Email Count</span>
+                <div class="header-arrows">
+                    <button id="ascending" onclick="sortTable('ascending')">&#9650;</button>
+                    <button id="descending" onclick="sortTable('descending')">&#9660;</button>
+                </div>
+            </div>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% trees.forEach(tree => { %>
+        <tr>
+            <td><%= tree.customerName %></td>
+            <td><%= tree.emailCount %></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+
+<script src="/js/dashboard.js"></script>
+</body>
+</html>
